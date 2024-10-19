@@ -70,7 +70,7 @@ def load_dataset(file_path):
 def compile_and_train_model(X_train, y_train):
     """Compile and train the LSTM model."""
     model.compile(optimizer=Adam(), loss='binary_crossentropy', metrics=['accuracy'])
-    model.fit(X_train, y_train, epochs=3, batch_size=32)
+    model.fit(X_train, y_train, epochs=1, batch_size=32)
 
 def process_video(args):
     """Process the video for person detection and tracking."""
