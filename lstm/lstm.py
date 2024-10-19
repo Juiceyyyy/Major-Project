@@ -6,10 +6,7 @@ from collections import deque, Counter
 import tensorflow as tf
 
 # Load the LSTM model
-# model = tf.load_model('human_detection_model.keras')
-
-# Optional: Print model summary to verify it has loaded correctly
-model.summary()
+model = tf.load_model('human_detection_model.keras')
 
 # Initialize tracking variables
 tracking_trajectories = {}
