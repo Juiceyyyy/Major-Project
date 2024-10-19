@@ -1,4 +1,6 @@
 # # Files to ignore
 
 ## Get dataset by running download.py
-/dataset/
+/dataset
+
+/output
