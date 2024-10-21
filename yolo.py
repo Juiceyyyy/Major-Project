@@ -152,7 +152,7 @@ def process_video(args):
     # input_video_name = source.split('.')[0]  # Get the input video name without extension
     input_video_name = os.path.splitext(os.path.basename(source))[0]
     # print('testing : ', input_video_name)
-    out = cv2.VideoWriter(f'output/{input_video_name}_output.mp4', fourcc, 15, (frame_width, frame_height))
+    out = cv2.VideoWriter(f'output/{input_video_name}_output.mp4', fourcc, 30, (frame_width, frame_height))
 
     if not cap.isOpened():
         print(f"Error: Could not open video file {source}.")
