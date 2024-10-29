@@ -1,0 +1,64 @@
+{
+    "Project Overview": "Develop a CNN + LSTM hybrid model for multi-feature, multi-human tracking using the PathTrack dataset, with the goal to detect and track humans from videos or webcam input in real-time.",
+    "Dataset Structure": {
+        "Train Data": "dataset/personpath22/pathtrack/pathtrack_release/train/",
+        "Test Data": "dataset/personpath22/pathtrack/pathtrack_release/test/",
+        "Annotation Data": {
+            "Ground Truth": "gt/gt.txt",
+            "Detections": "det/det_rcnn.txt",
+            "Image Frames": "img1/"
+        }
+    },
+    "Project Steps": [
+        {
+            "Step": "Data Preprocessing",
+            "Details": "Extract frames, resize them to (224x224), normalize pixel values, and load ground truth data from annotations."
+        },
+        {
+            "Step": "CNN Model Creation",
+            "Details": "Use ResNet-50 as the backbone to extract spatial features from images. Save extracted features as hybrid_cnn.npz."
+        },
+        {
+            "Step": "LSTM Model Creation",
+            "Details": "Create an LSTM model that takes the CNN features along with temporal data and annotations to learn tracking patterns."
+        },
+        {
+            "Step": "Training",
+            "Details": {
+                "Optimizer": "Adam",
+                "Loss": "Categorical Crossentropy",
+                "Checkpoint": "Save model weights using checkpoints during training.",
+                "Train-Test Split": "Use split.json to determine the split."
+            }
+        },
+        {
+            "Step": "Evaluation",
+            "Details": "Evaluate the model using Intersection-over-Union (IoU) and Multiple Object Tracking Accuracy (MOTA) metrics."
+        },
+        {
+            "Step": "Inference and Real-Time Tracking",
+            "Details": {
+                "Webcam Input": "Enable real-time webcam input for human tracking.",
+                "Video Input": "Allow loading of videos from dataset/personpath22/ for evaluation.",
+                "Bounding Boxes": "Display bounding boxes on detected humans in the output."
+            }
+        }
+    ],
+    "Output Files": {
+        "CNN Features": "dataset/personpath22/hybrid_cnn.npz",
+        "CNN Model": [
+            "dataset/personpath22/hybrid_cnn.h5",
+            "dataset/personpath22/hybrid_cnn.json"
+        ],
+        "LSTM Model": [
+            "dataset/personpath22/hybrid_lstm.h5",
+            "dataset/personpath22/hybrid_lstm.json"
+        ]
+    },
+    "Dependencies": [
+        "TensorFlow",
+        "Keras",
+        "OpenCV",
+        "NumPy"
+    ]
+}
